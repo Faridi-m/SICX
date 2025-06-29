@@ -1,0 +1,33 @@
+#Example Commands
+
+#XSS
+python sicx.py testphp.vulnweb.com --type xss --xss -v
+python sicx.py testphp.vulnweb.com --type xss --xss --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type xss --xss --encode hex --obfuscate -v
+python sicx.py testphp.vulnweb.com --type xss --xss --encode base64 --obfuscate -v
+
+#SQL
+python sicx.py testphp.vulnweb.com --type sqli --sql -v
+python sicx.py testphp.vulnweb.com --type sqli --sql --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type sqli --sql --encode hex --obfuscate -v
+python sicx.py testphp.vulnweb.com --type sqli --sql --encode base64 --obfuscate -v
+
+
+#Command Injection
+python sicx.py testphp.vulnweb.com --type cmdi --cmd -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --encode hex --obfuscate -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --encode base64 --obfuscate -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform linux --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform windows --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform all --encode url --obfuscate -v
+
+#Full Command
+python sicx.py <target> --type <xss|sqli|cmdi> [--xss] [--sql] [--cmd]
+                   [--platform linux|windows|all] [--encode url|base64|hex]
+                   [--obfuscate] [-v | --verbose]
+                   [--count <N>] [--save <file>] [--output <cli|json|csv|xml|txt>]
+                   [--context <html|attribute|script|css>] [--database <mysql|postgres|mssql|oracle>]
+                   [--blind] [--filter-bypass] [--waf-evasion]
+
+                   
