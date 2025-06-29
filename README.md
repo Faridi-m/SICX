@@ -73,7 +73,7 @@ python sicx.py <target> --type <xss|sqli|cmdi> [--xss] [--sql] [--cmd]
 - `--xss`: Enable XSS scanning
 - `--sql`: Enable SQL injection scanning  
 - `--cmd`: Enable command injection scanning
-- `--platform`: Target platform (linux|windows|all)
+- `--platform`: Target platform (linux|windows|all) # Use only for Command Injection
 - `--encode`: Encoding method (url|base64|hex|unicode|html)
 - `--obfuscate`: Apply obfuscation techniques
 - `--verbose`: Detailed output
@@ -96,10 +96,10 @@ python sicx.py <target> --type <xss|sqli|cmdi> [--xss] [--sql] [--cmd]
 python sicx.py testphp.vulnweb.com --type xss --xss -v
 
 # XSS with encoding and obfuscation
-python sicx.py example.com --type xss --xss --encode url --obfuscate -v
+python sicx.py testphp.vulnweb.com --type xss --xss --encode url --obfuscate -v
 
 # Context-aware XSS testing
-python sicx.py example.com --type xss --xss --context attribute --encode base64
+python sicx.py testphp.vulnweb.com --type xss --xss --context attribute --encode base64
 ```
 
 ### SQL Injection Testing
@@ -108,35 +108,35 @@ python sicx.py example.com --type xss --xss --context attribute --encode base64
 python sicx.py testphp.vulnweb.com --type sqli --sql -v
 
 # MySQL-specific blind injection
-python sicx.py example.com --type sqli --sql --database mysql --blind --encode hex
+python sicx.py testphp.vulnweb.com --type sqli --sql --database mysql --blind --encode hex
 
 # Advanced WAF bypass
-python sicx.py example.com --type sqli --sql --waf-evasion --filter-bypass
+python sicx.py testphp.vulnweb.com --type sqli --sql --waf-evasion --filter-bypass
 ```
 
 ### Command Injection Testing
 ```bash
 # Linux command injection
-python sicx.py example.com --type cmdi --cmd --platform linux -v
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform linux -v
 
 # Windows-specific with encoding
-python sicx.py example.com --type cmdi --cmd --platform windows --encode base64
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform windows --encode base64
 
 # Multi-platform with obfuscation
-python sicx.py example.com --type cmdi --cmd --platform all --obfuscate --encode url
+python sicx.py testphp.vulnweb.com --type cmdi --cmd --platform all --obfuscate --encode url
 
 ```
 
 ### Payload Generation & Export
 ```bash
 # Generate 50 XSS payloads and save as JSON
-python sicx.py example.com --type xss --count 50 --save xss_payloads.json --output json
+python sicx.py testphp.vulnweb.com --type xss --count 50 --save xss_payloads.json --output json
 
 # Generate SQL payloads for PostgreSQL
-python sicx.py example.com --type sqli --database postgres --count 25 --save sqli.csv --output csv
+python sicx.py testphp.vulnweb.com --type sqli --database postgres --count 25 --save sqli.csv --output csv
 
 # Generate obfuscated command injection payloads
-python sicx.py example.com --type cmdi --obfuscate --count 30 --save cmdi.xml --output xml
+python sicx.py testphp.vulnweb.com --type cmdi --obfuscate --count 30 --save cmdi.xml --output xml
 
 ```
 
@@ -254,7 +254,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ### Development Setup
 ```bash
-git clone https://github.com/yourusername/sicx.git
+git clone https://github.com/Faridi-m/sicx.git
 cd sicx
 pip install -e ".[dev]"
 pytest tests/
@@ -272,8 +272,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support & Documentation
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/sicx/issues)
-- **Documentation**: [Wiki](https://github.com/yourusername/sicx/wiki)
+- **Issues**: [GitHub Issues](https://github.com/Faridi-m/sicx/issues)
+- **Documentation**: [Wiki](https://github.com/Faridi-m/sicx/wiki)
 - **Examples**: [Examples Directory](examples/)
 
 ## ⚠️ Disclaimer
